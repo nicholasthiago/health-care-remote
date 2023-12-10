@@ -1,5 +1,7 @@
 import Navbar from 'components/navbar'
 import './globals.css'
+import ReduxProvider from 'lib/provider'
+
 
 export const metadata = {
 	title: 'Health Care Remote',
@@ -10,8 +12,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				<Navbar />
-				{children}
+				<ReduxProvider>
+					<Navbar />
+					{children}
+				</ReduxProvider>
 			</body>
 		</html>
 	)
