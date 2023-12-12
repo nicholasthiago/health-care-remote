@@ -96,3 +96,18 @@ export const users = [
 		"password": "password"
 	}
 ]
+
+export const mainOptions = [
+	{
+		title: "Appointments",
+		href: "/appointments",
+	},
+	{
+		title: "Emergency",
+		href: "/emergency",
+	},
+	{
+		title: "Prescriptions",
+		href: "/prescriptions",
+	},
+]

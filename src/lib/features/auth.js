@@ -5,7 +5,7 @@ import { verifyLogIn } from "utils/utils";
 const initialState = {
 	isAuth: false,
 	users: users,
-	currUser: {},
+	currUser: [],
 }
 
 export const auth = createSlice({
@@ -14,12 +14,16 @@ export const auth = createSlice({
 	reducers: {
 		logOut: () => initialState,
 		logIn: ( state, action ) => {
-			if ( verifyLogIn( action.payload )) {
+			const currUser = verifyLogIn( action.payload )
+
+			if ( currUser.length > 0 ) {
 				return {
 					...initialState,
 					isAuth: true,
-					currUser: action.payload,
+					currUser
 				}
+			} else {
+				alert( "Invalid Health number or password" )
 			}
 		},
 	},

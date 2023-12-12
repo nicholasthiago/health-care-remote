@@ -2,29 +2,43 @@
 import Link from "next/link";
 import style from 'styles/style'
 import { logOut } from "lib/features/auth";
-import { useAppDispatch } from "lib/hooks";
+import { useAppDispatch, useAppSelector } from "lib/hooks";
+import { mainOptions } from "lib/data/data";
+
+
 
 // Navbar component
 const Navbar = () => {
 
 	const dispatch = useAppDispatch();
-	const handle_LogOut = () => dispatch( logOut());
+	const isAuth = useAppSelector((state) => state.authReducer.isAuth)
+
+	const handle_LogOut = () => dispatch(logOut());
+
+	const render_mainOptions = () => {
+		return (mainOptions).map((e, key) => {
+			return (
+				<Link key={key} className={style.link} href={e.href}> {e.title} </Link>
+			)
+		})
+
+	}
 
 	return (
-		<nav className={ style.nav + ' px-6 py-4 bg-hcblue text-slate-100 font-medium'} >
+		<nav className={style.nav + ' px-6 py-4 bg-hcblue text-slate-100 font-medium'} >
 
-			<Link className={'flex-1'} href={'/'}> {'Health Care Remote'} </Link>
+			<Link className={'flex-1 text-xl'} href={'/'}> {'Health Care Remote'} </Link>
 
 			<div className={'flex flex-2 gap-6'}>
 
-				{/* <Link className={ style.link } href={'/'}> {'Home'} </Link> */}
-				<Link className={ style.link } href={'/appointments'	}> {'Appointments'	} </Link>
-				<Link className={ style.link } href={'/emergency'		}> {'Emergency'		} </Link>
-				<Link className={ style.link } href={'/prescriptions'	}> {'Prescriptions'	} </Link>
+				{render_mainOptions()}
 			</div>
 
-			<button className={'flex-1 text-white px-2'} onMouseDown={() => handle_LogOut()}
-			> {'Log Out'} </button>
+			{(isAuth) ?
+				<button className={'flex-1 text-white px-2'}
+					onMouseDown={() => handle_LogOut()}
+				> {'Log Out'} </button> : null
+			}
 
 		</nav>
 	)
