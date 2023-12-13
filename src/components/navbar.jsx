@@ -4,16 +4,21 @@ import style from 'styles/style'
 import { logOut } from "lib/features/auth";
 import { useAppDispatch, useAppSelector } from "lib/hooks";
 import { mainOptions } from "lib/data/data";
+import { useRouter } from "next/navigation";
 
 
 
 // Navbar component
 const Navbar = () => {
 
+	const router = useRouter()
 	const dispatch = useAppDispatch();
 	const isAuth = useAppSelector((state) => state.authReducer.isAuth)
 
-	const handle_LogOut = () => dispatch(logOut());
+	const handle_LogOut = () => {
+		dispatch(logOut());
+		router.push('/')
+	}
 
 	const render_mainOptions = () => {
 		return (mainOptions).map((e, key) => {
@@ -21,7 +26,6 @@ const Navbar = () => {
 				<Link key={key} className={style.link} href={e.href}> {e.title} </Link>
 			)
 		})
-
 	}
 
 	return (

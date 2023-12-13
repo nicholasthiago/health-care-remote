@@ -3,7 +3,7 @@ import 'app/globals.css'
 import ItemList from 'components/item-list';
 import { getList } from 'lib/features/prescriptions';
 import { useAppDispatch, useAppSelector } from 'lib/hooks';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAuthVerify } from 'utils/utils';
 
 // Page : Prescriptions
