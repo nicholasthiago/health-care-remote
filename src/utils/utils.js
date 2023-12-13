@@ -2,7 +2,7 @@ import { users } from '../lib/data/data'
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from 'lib/hooks';
 
-export function verifyAuth() {
+export function useAuthVerify() {
 
 	const router = useRouter()
 	const isAuth = useAppSelector((state) => state.authReducer.isAuth)

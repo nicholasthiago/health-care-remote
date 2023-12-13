@@ -4,7 +4,7 @@ import ItemList from 'components/item-list';
 import { getList } from 'lib/features/prescriptions';
 import { useAppDispatch, useAppSelector } from 'lib/hooks';
 import { useEffect, useState } from 'react';
-import { verifyAuth } from 'utils/utils';
+import { useAuthVerify } from 'utils/utils';
 
 // Page : Prescriptions
 const Prescriptions = () => {
@@ -18,7 +18,7 @@ const Prescriptions = () => {
 		dispatch(getList(currUser[0].healthNumber))
 	})
 
-	if (!verifyAuth()) {
+	if (!useAuthVerify()) {
 		return null
 	} else {
 		return (

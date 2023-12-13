@@ -1,6 +1,6 @@
 "use client"
 import 'app/globals.css'
-import { verifyAuth } from 'utils/utils'
+import { useAuthVerify } from 'utils/utils'
 
 // Page : Home
 const OnLine = () => {
@@ -12,7 +12,7 @@ const OnLine = () => {
 		return Math.floor(Math.random() * (max - min) + min)
 	}
 
-	if (!verifyAuth()) {
+	if (!useAuthVerify()) {
 		return null
 	} else {
 

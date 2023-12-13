@@ -1,12 +1,12 @@
 "use client"
 import 'app/globals.css'
 import Link from 'next/link'
-import { verifyAuth } from 'utils/utils'
+import { useAuthVerify } from 'utils/utils'
 
 // Page : Home
 const Emergency = () => {
 
-	if (!verifyAuth()) {
+	if (!useAuthVerify()) {
 		return null
 	} else {
 		return (
