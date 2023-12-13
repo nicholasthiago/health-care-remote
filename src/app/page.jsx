@@ -3,9 +3,6 @@ import Login from 'components/login'
 import Main from 'components/main'
 import { useAppSelector } from 'lib/hooks'
 import 'app/globals.css'
-//	import Appointments from	'app/appointments'
-//	import Emergency from 		'app/emergency'
-//	import Prescriptions from	'app/prescriptions'
 
 // Main Page Component
 export default function Home() {
