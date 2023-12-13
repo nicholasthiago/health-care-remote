@@ -1,5 +1,5 @@
-import Login from 'components/login';
-import { users } from 'lib/data/data'
+import Login from '../components/login';
+import { users } from '../lib/data/data'
 
 export function verifyLogIn ( userInput ) {
 
@@ -10,7 +10,7 @@ export function verifyLogIn ( userInput ) {
 	console.log( 'response: ', response )
 
 	if (response.length > 0) {
-		return true
+		return response
 
 	} else {
 		return false
