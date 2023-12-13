@@ -9,7 +9,7 @@ export default function MyApp() {
 
 	return (
 		<RootLayout>
-			<div className="flex min-h-fit flex-col items-center justify-start p-12">
+			<div className="flex min-h-fit flex-col items-center justify-center p-12">
 			</div>
 		</RootLayout>
 	)
