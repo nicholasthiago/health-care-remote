@@ -6,12 +6,12 @@ import { store } from './store'
 
 
 export default function ReduxProvider({ children }) {
-	// const storeRef = useRef()
-	// if (!storeRef.current) {
-// 
-	// 	// Create the store instance the first time this renders
-	// 	storeRef.current = store()
-	// }
+	const storeRef = useRef()
+	if (!storeRef.current) {
 
-	return <Provider store={ store() }>{children}</Provider>
+		// Create the store instance the first time this renders
+		storeRef.current = store()
+	}
+
+	return <Provider store={ storeRef.current }>{children}</Provider>
 }

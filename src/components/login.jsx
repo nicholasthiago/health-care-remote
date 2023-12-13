@@ -4,12 +4,16 @@
 import { logIn } from "lib/features/auth";
 import { useAppDispatch } from "lib/hooks";
 import { useState } from "react";
-import style from 'styles/style'
 
 function Login () {
 
 	const [ user, setuser ] = useState('')
 	const [ pswd, setPswd ] = useState('')
+
+	const style = {
+		input: 'px-4 py-3 my-1 rounded-sm shadow-sm',
+		btnGren: 'bg-hcgren text-slate-50 font-semibold rounded-sm px-6 py-2',
+	}
 
 	const dispatch = useAppDispatch();
 

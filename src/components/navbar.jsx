@@ -25,7 +25,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<nav className={style.nav + ' px-6 py-4 bg-hcblue text-slate-100 font-medium'} >
+		<nav className={style.nav + ' min-w-screen px-6 py-4 bg-hcblue text-slate-100 font-medium'} >
 
 			<Link className={'flex-1 text-xl'} href={'/'}> {'Health Care Remote'} </Link>
 

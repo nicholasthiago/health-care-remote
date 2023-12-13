@@ -1,20 +1,33 @@
 "use client"
 import 'app/globals.css'
-import Link from 'next/link'
 import { verifyAuth } from 'utils/utils'
 
 // Page : Home
-const Emergency = () => {
+const OnLine = () => {
+
+	const lineCount = () => {
+		let min = Math.ceil(3)
+		let max = Math.floor(9)
+
+		return Math.floor(Math.random() * (max - min) + min)
+	}
 
 	if (!verifyAuth()) {
 		return null
 	} else {
+
+		let line = lineCount()
+
 		return (
-			<div className="flex min-h-fit flex-col items-center justify-between py-12 px-16">
+			<div className={'flex min-h-fit flex-col gap-2 items-center justify-between py-12 px-16'}>
 
-				<h1 className={'font-bold text-2xl mb-4'}> {'Emergency Appointment'} </h1>
+				<h1 className={'font-bold text-2xl mb-4'}> {'You are on the Line'} </h1>
 
-				<div className={'flex flex-col items-center'}>
+				<h4> {`Your position on the line:\n ${ line }`} </h4>
+
+				<h4> {`Estimated time: ${ line * 4 } min`} </h4>
+
+				<div className={'flex flex-col items-center mt-4'}>
 
 					<span className={'flex flex-col gap-2 items-start'} >
 						To ensure a smooth and effective consultation, we recommend the following:
@@ -26,10 +39,6 @@ const Emergency = () => {
 						<p><strong> Test Your Audio and Video: </strong></p> Before the call, check that your microphone and camera are working correctly. This ensures that you can both speak and listen clearly during the consultation.
 					</span>
 
-					<Link href={'/on-line'}
-						className={'bg-hcgren text-slate-50 px-10 py-3 rounded-md font-semibold text-xl my-6'}
-					> {'Get in the line'} </Link>
-
 					<p className={''}> Remember, our goal is to provide you with convenient and accessible healthcare. If you have any questions or concerns, feel free to reach out to our support team.</p>
 				</div>
 
@@ -38,4 +47,4 @@ const Emergency = () => {
 	}
 }
 
-export default Emergency
+export default OnLine
