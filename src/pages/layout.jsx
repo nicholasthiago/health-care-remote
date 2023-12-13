@@ -1,22 +1,15 @@
-import ReduxProvider from 'lib/provider'
+import 'app/globals.css'
 import Navbar from 'components/navbar'
 import User from 'components/user'
+import ReduxProvider from 'lib/provider'
 
-export const metadata = {
-	title: 'Health Care Remote',
-	description: 'CPRG 306 - Final Project',
-}
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
 	return (
-		<html lang="en">
-			<body>
-				<ReduxProvider>
-					<Navbar />
-					<User />
-					{children}
-				</ReduxProvider>
-			</body>
-		</html>
+		<ReduxProvider>
+			<Navbar />
+			<User />
+			{children}
+		</ReduxProvider>
 	)
 }

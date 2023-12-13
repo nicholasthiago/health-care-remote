@@ -5,6 +5,7 @@ import { verifyLogIn } from "utils/utils";
 const initialState = {
 	isAuth: false,
 	users: users,
+	page: 'main',
 	currUser: [],
 }
 
@@ -12,6 +13,7 @@ export const auth = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {
+		// currPage: ( state, action ) => { return {...state, page: action.payload },
 		logOut: () => initialState,
 		logIn: ( state, action ) => {
 			const currUser = verifyLogIn( action.payload )
@@ -29,5 +31,5 @@ export const auth = createSlice({
 	},
 })
 
-export const { logIn, logOut } = auth.actions
+export const { logIn, logOut, currPage } = auth.actions
 export default auth.reducer
