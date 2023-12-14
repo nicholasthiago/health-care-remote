@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Loading from 'components/loading'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useAuthVerify } from 'utils/utils'
 import { useAppSelector } from 'lib/hooks'
 
 // Page : Home

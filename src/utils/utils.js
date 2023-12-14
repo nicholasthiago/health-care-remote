@@ -3,6 +3,7 @@ import { users } from '../lib/data/data'
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from 'lib/hooks';
 
+
 export function useAuthVerify() {
 
 	const router = useRouter()

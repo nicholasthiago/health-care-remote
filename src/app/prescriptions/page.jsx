@@ -3,10 +3,9 @@ import 'app/globals.css'
 import ItemList from 'components/item-list';
 import Loading from 'components/loading';
 import { getList } from 'lib/features/prescriptions';
-import { useAppDispatch, useAppSelector } from 'lib/hooks';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useAuthVerify } from 'utils/utils';
+import { useAppDispatch, useAppSelector } from 'lib/hooks';
 
 // Page : Prescriptions
 const Prescriptions = () => {
