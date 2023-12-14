@@ -23,8 +23,6 @@ export function verifyLogIn(userInput) {
 
 	let response = Object.values(users).filter(e => e.healthNumber === user && e.password === pswd);
 
-	// console.log('response: ', response)
-
 	if (response.length > 0) {
 		return response
 
