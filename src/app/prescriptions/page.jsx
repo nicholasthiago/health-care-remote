@@ -18,17 +18,16 @@ const Prescriptions = () => {
 		dispatch(getList(currUser[0].healthNumber))
 	})
 
-	if (!useAuthVerify()) {
-		return null
-	} else {
-		return (
-			<div className={'flex min-h-fit min-w-screen justify-center flex-col self-center items-start py-12 px-16 mx-auto'}>
-				<h1 className={'font-bold text-xl text-gray-800 px-6 pb-8'}> {'Prescriptions'} </h1>
-
-				<ItemList data={userPrescription} />
-			</div>
-		)
-	}
+	return (
+		<div className={'flex min-h-fit min-w-screen justify-center flex-col self-center items-start py-12 px-16 mx-auto'}>
+			{(useAuthVerify()) ? (
+				<>
+					<h1 className={'font-bold text-xl text-gray-800 px-6 pb-8'}> {'Prescriptions'} </h1>
+					<ItemList data={userPrescription} />
+				</>
+			) : null}
+		</div>
+	)
 }
 
 export default Prescriptions
