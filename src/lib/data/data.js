@@ -1,3 +1,19 @@
+export const mainOptions = [
+	{
+		title: "Appointments",
+		href: "/appointments",
+	},
+	{
+		title: "Emergency",
+		href: "/emergency",
+	},
+	{
+		title: "Prescriptions",
+		href: "/prescriptions",
+	},
+]
+
+
 export const users = [
 	{
 		"healthNumber": "HN123456",
@@ -95,19 +111,4 @@ export const users = [
 		"address": "909 Oak Street, Edmonton, Alberta, Canada",
 		"password": "password"
 	}
-]
-
-export const mainOptions = [
-	{
-		title: "Appointments",
-		href: "/appointments",
-	},
-	{
-		title: "Emergency",
-		href: "/emergency",
-	},
-	{
-		title: "Prescriptions",
-		href: "/prescriptions",
-	},
 ]

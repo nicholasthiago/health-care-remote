@@ -14,9 +14,10 @@ const Emergency = () => {
 
 	useEffect(() => {
 		if ( !isAuth ) { router.push('/') }
-	},[isAuth])
 
-	// if (!useAuthVerify()) {
+	}, [isAuth]) // eslint-disable-line react-hooks/exhaustive-deps
+
+
 	if (!isAuth) {
 		return <Loading />
 	} else {

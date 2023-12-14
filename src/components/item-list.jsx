@@ -2,6 +2,8 @@
 // Usage : <ItemList data={ <array> } />
 export default function ItemList({ data = [] }) {
 
+	// console.log( 'ItemList.data:\n ', data );
+
 	function build_Header() {
 		if (data.length > 0) {
 			return Object.keys(data[0]).map((el, i) =>
