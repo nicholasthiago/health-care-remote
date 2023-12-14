@@ -13,14 +13,9 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-<<<<<<< HEAD
-    
-    "redux": "^5.0.0"
-=======
     "react-redux": "^9.0.3",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0"
->>>>>>> 506277adc406b0ff45da842089b6c0ce414cc0a9
   },
   "devDependencies": {
     "@types/node": "20.10.4",
