@@ -1,13 +1,25 @@
 "use client"
 import 'app/globals.css'
 import Link from 'next/link'
+import Loading from 'components/loading'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useAuthVerify } from 'utils/utils'
+import { useAppSelector } from 'lib/hooks'
 
 // Page : Home
 const Emergency = () => {
+	
+	const router = useRouter()
+	const isAuth = useAppSelector((state) => state.authReducer.isAuth)
 
-	if (!useAuthVerify()) {
-		return null
+	useEffect(() => {
+		if ( !isAuth ) { router.push('/') }
+	},[isAuth])
+
+	// if (!useAuthVerify()) {
+	if (!isAuth) {
+		return <Loading />
 	} else {
 		return (
 			<div className="flex min-h-fit flex-col items-center justify-between py-12 px-16">

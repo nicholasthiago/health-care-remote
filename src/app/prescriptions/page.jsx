@@ -1,25 +1,32 @@
 "use client"
 import 'app/globals.css'
 import ItemList from 'components/item-list';
+import Loading from 'components/loading';
 import { getList } from 'lib/features/prescriptions';
 import { useAppDispatch, useAppSelector } from 'lib/hooks';
-import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { useAuthVerify } from 'utils/utils';
 
 // Page : Prescriptions
 const Prescriptions = () => {
 
 	const dispatch = useAppDispatch();
+	const router = useRouter()
 
+	const isAuth = useAppSelector((state) => state.authReducer.isAuth)
 	const currUser = useAppSelector((state) => state.authReducer.currUser) || []
 	const userPrescription = useAppSelector((state) => state.prescriptionReducer.userPrescription)
 
 	useEffect(() => {
-		dispatch(getList(currUser[0].healthNumber))
-	})
+		dispatch(getList(currUser[0]?.healthNumber))
 
-	if (!useAuthVerify()) {
-		return null
+		if ( !isAuth ) { router.push('/') }
+	},[isAuth])
+
+	// if (!useAuthVerify()) {
+	if (!isAuth) {
+		return <Loading />
 	} else {
 		return (
 			<div className={'flex min-h-fit min-w-screen justify-center flex-col self-center items-start py-12 px-16 mx-auto'}>

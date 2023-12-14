@@ -1,9 +1,16 @@
 "use client"
 import 'app/globals.css'
+import Loading from 'components/loading'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useAuthVerify } from 'utils/utils'
+import { useAppSelector } from 'lib/hooks'
 
 // Page : Home
 const OnLine = () => {
+
+	const router = useRouter()
+	const isAuth = useAppSelector((state) => state.authReducer.isAuth)
 
 	const lineCount = () => {
 		let min = Math.ceil(3)
@@ -12,8 +19,13 @@ const OnLine = () => {
 		return Math.floor(Math.random() * (max - min) + min)
 	}
 
-	if (!useAuthVerify()) {
-		return null
+	useEffect(() => {
+		if ( !isAuth ) { router.push('/') }
+	},[isAuth])
+
+	// if (!useAuthVerify()) {
+	if (!isAuth) {
+		return <Loading />
 	} else {
 
 		let line = lineCount()
