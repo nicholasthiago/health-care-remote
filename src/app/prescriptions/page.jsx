@@ -15,7 +15,7 @@ const Prescriptions = () => {
 	const userPrescription = useAppSelector((state) => state.prescriptionReducer.userPrescription)
 
 	useEffect(() => {
-		dispatch(getList(currUser[0].healthNumber))
+		dispatch(getList(currUser[0]?.healthNumber))
 	})
 
 	return (
