@@ -8,7 +8,7 @@ export function useAuthVerify() {
 	const isAuth = useAppSelector((state) => state.authReducer.isAuth)
 
 	if (!isAuth) {
-		router.push('http://localhost:3000/')
+		router.push('/')
 		return false
 
 	} else {
