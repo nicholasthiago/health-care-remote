@@ -12,6 +12,7 @@ export const appointment = createSlice({
 	name: "appointments",
 	initialState,
 	reducers: {
+		setAppointments: (state, action) => { return { ...state, appointmentList: action.payload } },
 		getList: (state, action) => {
 			const list = filterList( action.payload, state.appointmentList )
 
@@ -20,7 +21,7 @@ export const appointment = createSlice({
 		newAppointment: (state,action) => {
 			let [ hnumber, newItem ] = action.payload
 
-			const appointmentId = `AD0${(countItems(state.appointmentList) + 1)}`
+			const appointmentId = `AP0${(countItems(state.appointmentList) + 1)}`
 			const userList	= [...state.appointmentList[hnumber], {...newItem, appointmentId }]
 			const newList	= {...state.appointmentList, [hnumber]: userList }
 
@@ -29,5 +30,5 @@ export const appointment = createSlice({
 	},
 })
 
-export const { getList, newAppointment } = appointment.actions
+export const { getList, newAppointment, setAppointments } = appointment.actions
 export default appointment.reducer
