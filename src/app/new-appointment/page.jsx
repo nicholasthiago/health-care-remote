@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'lib/hooks';
 import { appointmentFields, doctorNames, specialties } from 'lib/data/appointments';
 import { newAppointment } from 'lib/features/appoinments';
 import { getDate } from 'utils/utils';
+import { addAppointment } from 'utils/request';
 
 // Page : Home
 const NewAppointments = () => {
@@ -87,8 +88,8 @@ const NewAppointments = () => {
 		}
 	}
 
-	const render_Form = () => {
-		return Object.entries(appointmentFields).map(([label, type], key) => {
+	const render_Form = (fields) => {
+		return Object.entries(fields).map(([label, type], key) => {
 			return render_Field(label, type, key)
 		})
 	}
@@ -105,7 +106,7 @@ const NewAppointments = () => {
 				<h1 className="text-xl font-bold mb-8">Enter Your Details</h1>
 
 				<div className={'flex flex-col gap-4 w-3/5'}>
-					{render_Form()}
+					{render_Form(appointmentFields)}
 				</div>
 
 				<button className={btnStyle} onMouseDown={() => handle_Submit()}

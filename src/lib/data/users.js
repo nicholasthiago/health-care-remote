@@ -13,6 +13,21 @@ export const mainOptions = [
 	},
 ]
 
+export const userFields = {
+	"name": "text",
+	"email": "text",
+	"phone": "text",
+	"address": "text",
+}
+
+export const initialUser = {
+	"healthNumber": "HN",
+	"name": "",
+	"email": "",
+	"phone": "",
+	"address": "",
+	"password": "password"
+}
 
 export const users = [
 	{

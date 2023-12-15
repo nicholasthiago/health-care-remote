@@ -3,7 +3,7 @@ import Link from "next/link";
 import style from 'styles/style'
 import { logOut } from "lib/features/auth";
 import { useAppDispatch, useAppSelector } from "lib/hooks";
-import { mainOptions } from "lib/data/data";
+import { mainOptions } from "lib/data/users";
 import { useRouter } from "next/navigation";
 
 

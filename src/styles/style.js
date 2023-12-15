@@ -3,6 +3,7 @@ const style = {
 	link: 'cursor-pointer',
 	input: 'px-3 py-2 my-1 rounded-md shadow-md',
 	btnGren: 'bg-hcgren text-slate-50 font-semibold rounded-sm px-6 py-2',
+	btnBlue: 'bg-hcblue text-slate-50 font-semibold rounded-sm px-6 py-2',
 }
 
 export default style

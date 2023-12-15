@@ -1,5 +1,5 @@
 "use client"
-import { users } from '../lib/data/data'
+import { users } from '../lib/data/users'
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from 'lib/hooks';
 import appointmentList from 'lib/data/appointments';
@@ -83,4 +83,13 @@ export function getDate(time = false, response) {
 	} else {
 		return response = `${now.getHours()}:${now.getMinutes()}`
 	}
+}
+
+export function randomNumber( amount, response='' ) {
+	for ( let i = 1; i < amount; i++ ) {
+		response = response + Math.floor(Math.random()*10)
+	}
+
+	console.log( response )
+	return response
 }

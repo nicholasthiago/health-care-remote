@@ -1,4 +1,4 @@
-// prescriptions.js
+// appointments.js
 
 import clientPromise from "lib/mongodb";
 
@@ -15,9 +15,8 @@ export default async function handler(req, res) {
 			break;
 
 		case "POST":
-			let bodyObject = JSON.parse(req.body);
-			let myPost = await db.collection("appointments").insertOne(bodyObject);
-			res.json(myPost.ops[0]);
+			let myPost = await db.collection("appointments").insertOne(req.body);
+			res.json(myPost);
 			break;
 	}
 }

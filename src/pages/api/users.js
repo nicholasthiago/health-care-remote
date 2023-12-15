@@ -13,5 +13,11 @@ export default async function handler(req, res) {
 			const users = await db.collection("users").find({}).toArray();
 			res.json({ status: 200, data: users });
 			break;
+
+		case "POST":
+			let myPost = await db.collection("users").insertOne(req.body);
+			console.log( myPost)
+			res.json(myPost);
+			break;
 	}
 }

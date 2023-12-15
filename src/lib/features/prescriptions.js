@@ -11,7 +11,7 @@ export const prescription = createSlice({
 	name: "prescriptions",
 	initialState,
 	reducers: {
-		setPrescriptions: (state, action) => { return { ...state, prescriptionList: action.payload } },
+		setPrescriptions: (state, action) => { return { ...state, prescriptionList: action.payload.data[0] } },
 		getList: (state, action) => {
 			const list = filterList( action.payload, prescriptionList )
 
