@@ -14,6 +14,7 @@ function Login() {
 
 	const [user, setuser] = useState('')
 	const [pswd, setPswd] = useState('')
+	const [newHN, setNewHN] = useState('')
 	const [login, setLogin] = useState(true)
 	const [newUser, setnewUser] = useState(initialUser)
 
@@ -49,6 +50,8 @@ function Login() {
 
 				<div className={'flex flex-col gap-3 w-64'}>
 
+					{(newHN.length > 0) ? <h4> {'Your Health Number: ' + newHN} </h4> : null}
+
 					<input className={style.input} type={'text'} placeholder={'username'} onInput={e => setuser(e.target.value)} />
 					<input className={style.input} type={'password'} placeholder={'password'} onInput={e => setPswd(e.target.value)} />
 
@@ -71,18 +74,20 @@ function Login() {
 			[label]: value
 		}
 
-		console.log( newItem )
+		console.log(newItem)
 		setnewUser(newItem)
 	}
 
-	const handle_Submit = ( user) => {
+	const handle_Submit = (user) => {
 		const userID = 'HN' + randomNumber(6)
 		user = newUser
 		user.healthNumber = userID
 
-		dispatch(createUser(user))
+		setNewHN(userID)
 		addUser(user)
-		setLogin( true )
+
+		dispatch(createUser(user))
+		setLogin(true)
 		router.push('/')
 	}
 
